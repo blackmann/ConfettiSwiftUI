@@ -220,7 +220,7 @@ struct ConfettiView: View{
     }
 
     var body: some View{
-        ConfettiAnimationView(shape:getShape(), color:getColor(), spinDirX: getSpinDirection(), spinDirZ: getSpinDirection())
+        ConfettiAnimationView(shape:getShape(), color:getColor(), spinDirX:0, spinDirZ: getSpinDirection())
             .offset(x: location.x, y: location.y)
             .opacity(opacity)
             .onAppear(){
@@ -332,4 +332,21 @@ class ConfettiConfig: ObservableObject {
     var closingAngleRad:CGFloat{
         return CGFloat(closingAngle.degrees) * 180 / .pi
     }
+}
+
+private struct ConfettiPreview: View {
+  @State var trigger: Int = 0
+  
+  var body: some View {
+    Button("🎉") {
+      trigger += 1
+    }
+    .confettiCannon(trigger: $trigger)
+  }
+}
+
+#Preview {
+  NavigationView {
+    ConfettiPreview()
+  }
 }
