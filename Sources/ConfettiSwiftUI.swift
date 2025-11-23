@@ -266,7 +266,7 @@ struct ConfettiAnimationView: View {
     @State var move = false
     @State var xSpeed:Double = Double.random(in: 0.501...2.201)
 
-    @State var zSpeed = Double.random(in: 0.501...2.201)
+    @State var zSpeed = Double.random(in: 2.101...3.201)
     @State var anchor = CGFloat.random(in: 0...1).rounded()
     
     var body: some View {
